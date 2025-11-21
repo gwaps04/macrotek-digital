@@ -1,0 +1,37 @@
+/* 1. The scrolling animation definition */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(100%); /* Starts off-screen to the RIGHT */
+  }
+  100% {
+    transform: translateX(-100%); /* Ends off-screen to the LEFT */
+  }
+}
+
+/* 2. The class we will assign to our client list */
+.client-marquee {
+  display: flex;
+  gap: 3rem; /* Space between client names */
+  animation: scrollLeft 20s linear infinite; /* 20s speed, loops forever */
+  white-space: nowrap; /* Prevents text from wrapping to the next line */
+  width: max-content; /* Ensures the container is wide enough for all text */
+}
+
+/* Optional: Pause on hover so users can read it */
+.client-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Existing marquee code is up here... */
+
+/* GALLERY HOVER EFFECT */
+.gallery-img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05); /* Zooms in 5% */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important; /* Adds a pop-up shadow */
+  z-index: 10; /* Ensures the zoomed image sits on top of neighbors */
+}
