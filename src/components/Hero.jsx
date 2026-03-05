@@ -3,7 +3,7 @@ import React from 'react';
 const Hero = () => {
   return (
     // 1. LAYOUT CONTAINER
-    // We use 'container' to keep the images from stretching too wide on huge 4k screens (which causes pixelation).
+    // We use 'container' to keep the images from stretching too wide on huge 4k screens.
     // 'mx-auto' keeps it centered.
     <div className="container mx-auto mt-5 pt-5">
       
@@ -30,29 +30,23 @@ const Hero = () => {
           
           {/* SLIDE 1 */}
           <div className="carousel-item active" data-bs-interval="4000">
-            {/* KEY CHANGE: 
-               1. Removed 'height: 628px' (This caused the cropping).
-               2. Removed 'objectFit: cover' (This caused the zooming).
-               3. Added 'h-auto': Allows the height to shrink/grow naturally so 100% of the image is seen.
-            */}
             <img 
               src="/Slide1.png" 
               className="d-block w-100 h-auto" 
               alt="Static Web Development" 
             />
-            {/* Overlay Caption (Optional - kept just in case) */}
             <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
               <h5>Static Web Development</h5>
               <p>Fast, Secure, and Reliable solutions.</p>
             </div>
           </div>
 
-          {/* SLIDE 2 */}
+          {/* SLIDE 2 - UPDATED IMAGE HERE */}
           <div className="carousel-item" data-bs-interval="4000">
             <img 
-              src="/Slide2.png" 
+              src="/Slide2-New.png" 
               className="d-block w-100 h-auto" 
-              alt="Slide 2" 
+              alt="Professional Business Solutions" 
             />
           </div>
 
