@@ -20,28 +20,22 @@ const Home = () => {
       <ServiceTags />
       <WhyTrust />
 
-      {/* --- START: Sticky Floating Button (Orange/Gold Gradient + Shake) --- */}
+      {/* --- START: Sticky Floating Button (Tailwind Engineered) --- */}
       <a 
         href="https://macrotek-demos.vercel.app/" 
         target="_blank" 
         rel="noopener noreferrer"
-        /* The 'shake-on-hover' class handles the animation defined in index.css */
-        className="shake-on-hover btn position-fixed bottom-0 end-0 m-4 rounded-pill shadow-lg d-flex align-items-center gap-2 text-white"
-        style={{ 
-          zIndex: 1050,
-          /* NEW COLOR: Orange (#fd7e14) to Yellow (#ffc107). 
-             This stands out against blue/white themes while looking "inviting" instead of "dangerous".
-          */
-          background: 'linear-gradient(135deg, #fd7e14 0%, #ffc107 100%)', 
-          border: '2px solid #fff', /* White border helps it pop off the background image */
-          padding: '12px 25px', 
-          fontSize: '1.1rem',
-          /* Text shadow ensures "View Demo" is readable even on the lighter yellow part */
-          textShadow: '0px 1px 2px rgba(0,0,0,0.3)'
-        }}
+        /* 
+          Z-Index is set to z-50 to hover above all other content.
+          The background gradient, border (ring), and shadow bloom are all compiled natively. 
+        */
+        className="shake-on-hover fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-br from-orange-500 to-amber-400 text-white font-bold shadow-2xl shadow-orange-500/40 ring-2 ring-white transition-all duration-300 hover:scale-105"
       >
-        <i className="bi bi-laptop-fill"></i> 
-        <span className="fw-bold">View Demo</span>
+        {/* Replaced Bootstrap Icon with a native SVG */}
+        <svg className="w-5 h-5 drop-shadow-sm" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+        </svg>
+        <span className="drop-shadow-sm tracking-wide">View Demo</span>
       </a>
       {/* --- END: Sticky Floating Button --- */}
     </>

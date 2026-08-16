@@ -19,41 +19,61 @@ const ServiceTags = () => {
   ];
 
   return (
-    <section className="py-5 bg-white">
-      <div className="container">
+    <section className="relative py-16 lg:py-24 bg-slate-50 overflow-hidden">
+      
+      {/* Subtle Background Pattern for Enterprise Texture */}
+      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Optional Heading to give context */}
-        <div className="text-center mb-4">
-          <h5 className="text-muted fw-bold text-uppercase tracking-wide">
-            System Capabilities
-          </h5>
+        {/* HEADER SECTION */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="mb-4 flex justify-center">
+            <span className="inline-flex items-center rounded-full bg-indigo-100/80 px-4 py-1.5 text-sm font-bold text-indigo-700 ring-1 ring-inset ring-indigo-600/20 tracking-wide">
+              Technical Scope
+            </span>
+          </div>
+          <h2 className="brand-font text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+            System Capabilities & Architecture
+          </h2>
+          <p className="text-lg text-slate-600 font-medium max-w-2xl mx-auto">
+            From high-conversion landing pages to complex, interconnected enterprise management systems.
+          </p>
         </div>
 
-        {/* THE BADGE CLOUD 
-            d-flex: Enables flexbox layout
-            flex-wrap: Allows items to drop to the next line if the screen is narrow
-            justify-content-center: Centers the whole group horizontally
+        {/* 
+          THE CAPABILITY MATRIX (FLEX-WRAP CLOUD)
+          - Used a semantic <ul> list for accessibility.
+          - 'flex-wrap' ensures items flow naturally to the next line without breaking, regardless of screen width.
+          - 'justify-center' keeps the matrix perfectly balanced in the middle of the screen.
         */}
-        <div className="d-flex flex-wrap justify-content-center gap-3">
+        <ul className="flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-5 max-w-5xl mx-auto">
           
           {services.map((item, index) => (
-            <span 
-              key={index} 
-              // THE BADGE STYLING:
-              // badge: Bootstrap base class
-              // rounded-pill: Gives it the "Round" oval shape
-              // bg-light: Light gray background (clean look)
-              // text-dark: Dark text for contrast
-              // border: Adds a subtle border
-              // p-3: Padding inside the badge (makes it big and readable)
-              // shadow-sm: Adds a tiny pop-up effect
-              className="badge rounded-pill bg-light text-dark border p-3 fs-6 shadow-sm"
-            >
-              {item}
-            </span>
+            <li key={index} className="flex">
+              {/* 
+                CAPABILITY CHIP
+                Contains an intrinsic hover state that transforms it from a quiet 
+                informational tag into an active, premium UI element.
+              */}
+              <div 
+                className="group flex items-center px-5 py-3 rounded-full bg-white border border-slate-200 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-indigo-600 hover:border-indigo-600 hover:shadow-lg hover:shadow-indigo-500/25 cursor-default"
+              >
+                {/* 
+                  Technical Indicator Dot 
+                  Adds a layer of precision/engineering aesthetic. 
+                  Changes from Indigo to White when the parent container is hovered.
+                */}
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mr-3 transition-colors duration-300 group-hover:bg-white"></span>
+                
+                <span className="text-sm sm:text-base font-semibold text-slate-700 transition-colors duration-300 group-hover:text-white">
+                  {item}
+                </span>
+              </div>
+            </li>
           ))}
 
-        </div>
+        </ul>
 
       </div>
     </section>

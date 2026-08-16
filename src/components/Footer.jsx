@@ -2,39 +2,50 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    // 'bg-primary' = Blue Background
-    // 'text-white' = White Text
-    // 'py-4' = Padding Top and Bottom
-    <footer className="bg-primary text-white py-4 mt-auto">
-      <div className="container">
+    /* 
+      'mt-auto' forces the footer to the bottom of the screen if the page content is short.
+      'bg-slate-900' provides absolute contrast to the white/gray page above it.
+    */
+    <footer className="bg-slate-900 text-slate-300 py-12 mt-auto border-t border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* ROW 1: The Verse and The Tagline */}
-        <div className="row align-items-center mb-3">
+        {/* ROW 1: Brand & Tagline 
+            flex-col on mobile, flex-row on md+ screens to guarantee perfect aspect-ratio flow.
+        */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-10">
           
-          {/* UPPER LEFT: 1 Cor 10:31 */}
-          <div className="col-md-6 text-center text-md-start">
-            <h5 className="fw-bold mb-0">Top News</h5>
+          {/* UPPER LEFT: Brand Identity */}
+          <div className="text-center md:text-left flex flex-col items-center md:items-start">
+            <h5 className="brand-font text-2xl font-bold text-white tracking-tight mb-3">
+              Macrotek Digital Solutions
+            </h5>
+            
+            {/* Re-engineered the "Top News" reference into a premium badge */}
+            <span className="inline-flex items-center text-xs font-semibold text-indigo-300 bg-indigo-500/10 px-3 py-1 rounded-full ring-1 ring-inset ring-indigo-500/20 uppercase tracking-widest">
+              Built on Principles
+            </span>
           </div>
 
-          {/* RIGHT SIDE: Tagline 
-              (We place this on the right to balance the design) 
-          */}
-          <div className="col-md-6 text-center text-md-end">
-            <p className="mb-0 fst-italic opacity-75">
+          {/* RIGHT SIDE: Tagline */}
+          <div className="text-center md:text-right">
+            <p className="text-xl font-serif italic text-slate-400">
               "Together We move Forward."
             </p>
           </div>
         </div>
 
-        {/* VISUAL SEPARATOR (Thin white line) */}
-        <hr className="border-light opacity-50" />
+        {/* VISUAL SEPARATOR 
+            Using a gradient line instead of a solid border creates a premium, fading edge effect.
+        */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent my-8 opacity-50"></div>
 
         {/* ROW 2: CENTER - Developer Credit */}
-        <div className="row">
-          <div className="col-12 text-center">
-            <small className="mb-0">
-              Developed By: <strong>Macrotek Digital Solutions</strong>
-            </small>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+          <div className="text-center md:text-left">
+            &copy; {new Date().getFullYear()} All rights reserved.
+          </div>
+          <div className="text-center md:text-right">
+            Developed By: <strong className="text-slate-300">Macrotek Digital Solutions</strong>
           </div>
         </div>
 

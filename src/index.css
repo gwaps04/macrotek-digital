@@ -1,28 +1,68 @@
-/* 1. The scrolling animation definition */
+/* ==========================================================================
+   1. TAILWIND CSS V4 ENGINE
+   ========================================================================== */
+@import "tailwindcss";
+
+/* ==========================================================================
+   2. DESIGN TOKENS & FLUID TYPOGRAPHY
+   ========================================================================== */
+:root {
+  --text-base: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  --text-lg: clamp(1rem, 0.925rem + 0.375vw, 1.125rem);
+  --text-brand: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+}
+
+/* ==========================================================================
+   3. GLOBAL ELEMENT RESETS & TYPOGRAPHY APPLICATION
+   ========================================================================== */
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden; /* Zero horizontal scroll safety rule */
+  background-color: #f8fafc; /* slate-50 */
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-font {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ==========================================================================
+   4. CUSTOM ANIMATIONS & UTILITIES
+   ========================================================================== */
+
+/* 
+  NEW INFINITE SCROLL LOGIC ("Train Track" Method)
+  Instead of starting off-screen, the container starts at 0 and translates 
+  exactly 100% of its OWN width to the left. 
+*/
 @keyframes scrollLeft {
   0% {
-    transform: translateX(100%); /* Starts off-screen to the RIGHT */
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%); /* Ends off-screen to the LEFT */
+    transform: translateX(-100%);
   }
 }
 
-/* 2. The class we will assign to our client list */
-.client-marquee {
+/* 
+  The track container. 
+  'flex-shrink-0' ensures the track doesn't squish.
+  Duration increased to 40s for a slow, professional read speed. 
+*/
+.client-marquee-track {
   display: flex;
-  gap: 3rem; /* Space between client names */
-  animation: scrollLeft 20s linear infinite; /* 20s speed, loops forever */
-  white-space: nowrap; /* Prevents text from wrapping to the next line */
-  width: max-content; /* Ensures the container is wide enough for all text */
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100%;
+  animation: scrollLeft 40s linear infinite;
 }
 
-/* Optional: Pause on hover so users can read it */
-.client-marquee:hover {
+/* Pause animation when the user hovers over the parent container */
+.marquee-container:hover .client-marquee-track {
   animation-play-state: paused;
 }
 
-/* Existing marquee code is up here... */
 
 /* GALLERY HOVER EFFECT */
 .gallery-img {
@@ -31,9 +71,9 @@
 }
 
 .gallery-img:hover {
-  transform: scale(1.05); /* Zooms in 5% */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important; /* Adds a pop-up shadow */
-  z-index: 10; /* Ensures the zoomed image sits on top of neighbors */
+  transform: scale(1.05); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important; 
+  z-index: 10; 
 }
 
 /* SHAKE ANIMATION FOR DEMO BUTTON */
@@ -52,7 +92,6 @@
 }
 
 .shake-on-hover:hover {
-  /* Runs the shake animation infinitely while hovering */
   animation: shake 0.5s; 
   animation-iteration-count: infinite; 
 }
